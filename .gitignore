@@ -3,4 +3,4 @@ Dynamic_task_allocation/__pycache__/
 Facial_recognition/images/
 Facial_recognition/lfw/
 Facial_recognition/lfw.tgz
-Dynamic_task_allocation.env
+task_allocation/.env
