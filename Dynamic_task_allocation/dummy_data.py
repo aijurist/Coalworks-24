@@ -16,7 +16,12 @@ workers_data = {
     12: [1012, 'Sunita Devi', datetime(2016, 12, 5), 39, 1, 'Loader Operator', 70000, 8, 'Good', 'Night'],
     13: [1013, 'Raj Kumar', datetime(2022, 7, 15), 32, 4, 'Drilling Specialist', 71000, 4, 'Good', 'Night'],
     14: [1014, 'Geeta Sharma', datetime(2021, 10, 20), 30, 2, 'Blasting Technician', 79000, 5, 'Excellent', 'Day'],
-    15: [1015, 'Amit Patel', datetime(2019, 3, 10), 28, 5, 'Environmental Engineer', 85000, 3, 'Fair', 'Night']
+    15: [1015, 'Amit Patel', datetime(2019, 3, 10), 28, 5, 'Environmental Engineer', 85000, 3, 'Fair', 'Night'],
+    16: [1016, 'Rakesh Yadav', datetime(2018, 8, 15), 31, 2, 'Mechanic', 73000, 6, 'Good', 'Day'],
+    17: [1017, 'Kiran Verma', datetime(2020, 1, 20), 29, 4, 'Mechanic', 71000, 4, 'Fair', 'Night'],
+    18: [1018, 'Priya Singh', datetime(2021, 6, 10), 34, 1, 'Electrical Engineer', 77000, 7, 'Excellent', 'Day'],
+    19: [1019, 'Ravi Patel', datetime(2017, 11, 30), 38, 3, 'Surveyor', 72000, 8, 'Good', 'Night'],
+    20: [1020, 'Sanjay Sharma', datetime(2016, 4, 5), 45, 5, 'Hydraulic Specialist', 80000, 10, 'Good', 'Day']
 }
 
 shift_log_data = {
@@ -30,52 +35,192 @@ shift_log_data = {
 }
 
 training_data = [
-    # No Issue
-    ("No issues", "No Issue"),
-    ("The work was completed", "No Issue"),
-    ("Routine inspection completed without issues", "No Issue"),
+    # No Issue/Positive Logs
+    ("No issues reported", "No Issue"),
+    ("Routine inspection completed successfully", "No Issue"),
+    ("All operations running smoothly", "No Issue"),
+    ("Team meeting held, no concerns raised", "No Issue"),
+    ("Completed the task ahead of schedule", "No Issue"),
 
-    # Delay
-    ("Minor delay in shovel operation", "Delay"),
-    ("Overburden removal delay due to weather", "Delay"),
-    ("Delay in material supply", "Delay"),
+    # Delay Issues
+    ("Minor delay in shovel operation due to soil conditions", "Delay"),
+    ("Overburden removal delayed due to heavy rainfall", "Delay"),
+    ("Material supply delayed by traffic congestion", "Delay"),
     ("Work delayed due to unforeseen circumstances", "Delay"),
+    ("Operational delay in loading due to equipment issues", "Delay"),
 
-    # Equipment Issue
-    ("Drill malfunction", "Equipment Issue"),
-    ("Blasting equipment issue; Delay in OBD removal", "Equipment Issue"),
-    ("Drill performance issue", "Equipment Issue"),
-    ("Unexpected machinery breakdown", "Equipment Issue"),
-    ("Faulty conveyor belt", "Equipment Issue"),
+    # Equipment Issues
+    ("Drill malfunction during operation", "Equipment Issue"),
+    ("Blasting equipment failed to ignite, causing delays", "Equipment Issue"),
+    ("Drill performance issue affecting work speed", "Equipment Issue"),
+    ("Unexpected machinery breakdown during excavation", "Equipment Issue"),
+    ("Faulty conveyor belt causing material flow stoppage", "Equipment Issue"),
+    ("JCB making unusual noises, needs inspection", "Equipment Issue"),
+    ("Water leaking from the roof of the JCB cabin", "Equipment Issue"),
+    ("Truck brake is loose, requires immediate attention", "Equipment Issue"),
+    ("Flat tire on truck causing transport delays", "Equipment Issue"),
 
-    # Maintenance
-    ("Routine maintenance", "Maintenance"),
-    ("Maintenance scheduling conflict", "Maintenance"),
+    # Maintenance Issues
+    ("Routine maintenance completed", "Maintenance"),
+    ("Scheduling conflict in maintenance work", "Maintenance"),
+    ("Delayed maintenance work due to resource unavailability", "Maintenance"),
 
-    # Operational Issue
-    ("Power outage affecting operations", "Operational Issue"),
-    ("Overtime work due to shift handover delays", "Operational Issue"),
-    ("Unexpected increase in workload", "Operational Issue"),
+    # Operational Issues
+    ("Power outage affecting all operations", "Operational Issue"),
     ("Supervisor is late by 12 hours", "Operational Issue"),
+    ("Miscommunication between teams causing workflow issues", "Operational Issue"),
+    ("System outage impacting operation tracking", "Operational Issue"),
+    ("Unscheduled safety drill affecting productivity", "Operational Issue"),
 
-    # Resource Issue
-    ("Insufficient raw material", "Resource Issue"),
-    ("Delayed delivery of spare parts", "Resource Issue"),
+    # Resource Issues
     ("Inadequate stock of essential supplies", "Resource Issue"),
-    ("Shortage of critical resources", "Resource Issue"),
+    ("Shortage of critical resources affecting operations", "Resource Issue"),
+    ("Insufficient fuel for machinery", "Resource Issue"),
+    ("Delay in receiving materials from supplier", "Resource Issue"),
+    ("Water supply issues affecting cooling systems", "Resource Issue"),
 
-    # Human Error
-    ("Operator error causing delays", "Human Error"),
-    ("Incorrectly set machine parameters", "Human Error"),
+    # Human Error Issues
     ("Employee absence causing delays", "Human Error"),
-    ("Mistake in task execution", "Human Error"),
+    ("Mistake in task execution leading to rework", "Human Error"),
+    ("Improper handling of equipment leading to damage", "Human Error"),
+    ("Mislabeling of materials causing operational confusion", "Human Error"),
+    ("Failure to follow safety protocol during blasting", "Human Error"),
 
-    # Safety Issue
-    ("Safety protocol breach", "Safety Issue"),
-    ("Emergency evacuation drill conducted", "Safety Issue"),
-    ("Safety gear not available", "Safety Issue"),
-    ("Safety hazard identified in workplace", "Safety Issue"),
+    # Safety Issues
+    ("Safety protocol breach identified", "Safety Issue"),
+    ("Safety hazard identified in the workplace", "Safety Issue"),
+    ("Incident involving minor injury reported", "Safety Issue"),
+    ("Unsafe working conditions due to poor lighting", "Safety Issue"),
+    ("Overhead structure damage posing a safety risk", "Safety Issue"),
+
+    # Irrelevant/Unrelated Logs
+    ("Discussion about weekend plans", "Irrelevant"),
+    ("Weather is sunny, no issues expected", "Irrelevant"),
+    ("Team discussing last night's football match", "Irrelevant"),
+    ("Personal conversation about family matters", "Irrelevant"),
+    ("Employee requesting a leave of absence", "Irrelevant"),
+    ("Lunch break started late", "Irrelevant"),
+    ("Request for additional chairs in the break room", "Irrelevant"),
+    ("Talking about new office decorations", "Irrelevant"),
 ]
+
+training_data_gemini = [
+    # No Issue/Positive Logs
+    ("No issues reported", "No Issue"),
+    ("Routine inspection completed successfully", "No Issue"),
+    ("All operations running smoothly", "No Issue"),
+    ("Team meeting held, no concerns raised", "No Issue"),
+    ("Completed the task ahead of schedule", "No Issue"),
+    ("Shift change executed without issues", "No Issue"),
+    ("Weekly safety drill conducted successfully", "No Issue"),
+    ("Team morale is high; no problems to report", "No Issue"),
+    ("All safety protocols followed during shift", "No Issue"),
+    ("Production targets met without any issues", "No Issue"),
+
+    # Delay Issues
+    ("Minor delay in shovel operation due to soil conditions", "Delay"),
+    ("Overburden removal delayed due to heavy rainfall", "Delay"),
+    ("Material supply delayed by traffic congestion", "Delay"),
+    ("Work delayed due to unforeseen circumstances", "Delay"),
+    ("Operational delay in loading due to equipment issues", "Delay"),
+    ("Shift start delayed due to foggy conditions", "Delay"),
+    ("Waiting for replacement parts caused a delay in work", "Delay"),
+    ("Delay in drilling operation due to hard rock formation", "Delay"),
+    ("Power outage delayed the start of the operation", "Delay"),
+    ("Loading operation delayed due to congestion at the site", "Delay"),
+
+    # Equipment Issues
+    ("Drill malfunction during operation", "Equipment Issue"),
+    ("Blasting equipment failed to ignite, causing delays", "Equipment Issue"),
+    ("Drill performance issue affecting work speed", "Equipment Issue"),
+    ("Unexpected machinery breakdown during excavation", "Equipment Issue"),
+    ("Faulty conveyor belt causing material flow stoppage", "Equipment Issue"),
+    ("JCB making unusual noises, needs inspection", "Equipment Issue"),
+    ("Water leaking from the roof of the JCB cabin", "Equipment Issue"),
+    ("Truck brake is loose, requires immediate attention", "Equipment Issue"),
+    ("Flat tire on truck causing transport delays", "Equipment Issue"),
+    ("Bulldozer hydraulic system failure", "Equipment Issue"),
+    ("Loader bucket malfunctioned during operation", "Equipment Issue"),
+    ("Excavator arm stuck in mid-position", "Equipment Issue"),
+    ("Fuel pump on generator malfunctioned", "Equipment Issue"),
+    ("Conveyor belt motor overheated", "Equipment Issue"),
+    ("Crane cable showing signs of wear, needs replacement", "Equipment Issue"),
+
+    # Maintenance Issues
+    ("Routine maintenance completed", "Maintenance"),
+    ("Scheduling conflict in maintenance work", "Maintenance"),
+    ("Delayed maintenance work due to resource unavailability", "Maintenance"),
+    ("Maintenance team understaffed, causing delays", "Maintenance"),
+    ("Emergency maintenance required for conveyor belt", "Maintenance"),
+    ("Planned maintenance of drilling equipment postponed", "Maintenance"),
+    ("Maintenance work on truck fleet started late", "Maintenance"),
+    ("Maintenance team waiting for spare parts", "Maintenance"),
+    ("Maintenance inspection revealed minor wear and tear", "Maintenance"),
+    ("Shift maintenance completed with no major issues", "Maintenance"),
+
+    # Operational Issues
+    ("Power outage affecting all operations", "Operational Issue"),
+    ("Supervisor is late by 12 hours", "Operational Issue"),
+    ("Miscommunication between teams causing workflow issues", "Operational Issue"),
+    ("System outage impacting operation tracking", "Operational Issue"),
+    ("Unscheduled safety drill affecting productivity", "Operational Issue"),
+    ("Change in shift schedule causing confusion", "Operational Issue"),
+    ("Operational efficiency reduced due to lack of coordination", "Operational Issue"),
+    ("Unexpected change in work orders caused delays", "Operational Issue"),
+    ("Safety drill interrupted the ongoing work", "Operational Issue"),
+    ("Data entry error led to incorrect production reporting", "Operational Issue"),
+
+    # Resource Issues
+    ("Inadequate stock of essential supplies", "Resource Issue"),
+    ("Shortage of critical resources affecting operations", "Resource Issue"),
+    ("Insufficient fuel for machinery", "Resource Issue"),
+    ("Delay in receiving materials from supplier", "Resource Issue"),
+    ("Water supply issues affecting cooling systems", "Resource Issue"),
+    ("Low inventory of safety gear", "Resource Issue"),
+    ("Fuel delivery delayed by weather conditions", "Resource Issue"),
+    ("Lack of spare parts impacting maintenance schedule", "Resource Issue"),
+    ("Shortage of lubricants for machinery", "Resource Issue"),
+    ("Delay in arrival of explosives for blasting", "Resource Issue"),
+
+    # Human Error Issues
+    ("Employee absence causing delays", "Human Error"),
+    ("Mistake in task execution leading to rework", "Human Error"),
+    ("Improper handling of equipment leading to damage", "Human Error"),
+    ("Mislabeling of materials causing operational confusion", "Human Error"),
+    ("Failure to follow safety protocol during blasting", "Human Error"),
+    ("Incorrect drill bit selection slowed progress", "Human Error"),
+    ("Late arrival of workers impacted productivity", "Human Error"),
+    ("Overfilling of dump truck caused spillage", "Human Error"),
+    ("Incomplete documentation caused delays in task allocation", "Human Error"),
+    ("Miscommunication led to improper tool usage", "Human Error"),
+
+    # Safety Issues
+    ("Safety protocol breach identified", "Safety Issue"),
+    ("Safety hazard identified in the workplace", "Safety Issue"),
+    ("Incident involving minor injury reported", "Safety Issue"),
+    ("Unsafe working conditions due to poor lighting", "Safety Issue"),
+    ("Overhead structure damage posing a safety risk", "Safety Issue"),
+    ("Fire safety equipment not functional", "Safety Issue"),
+    ("Blocked emergency exit found during inspection", "Safety Issue"),
+    ("Hazardous materials not stored properly", "Safety Issue"),
+    ("Safety inspection revealed potential risks", "Safety Issue"),
+    ("Loose wiring identified as a safety hazard", "Safety Issue"),
+
+    # Irrelevant/Unrelated Logs
+    ("Discussion about weekend plans", "Irrelevant"),
+    ("Weather is sunny, no issues expected", "Irrelevant"),
+    ("Team discussing last night's football match", "Irrelevant"),
+    ("Personal conversation about family matters", "Irrelevant"),
+    ("Employee requesting a leave of absence", "Irrelevant"),
+    ("Lunch break started late", "Irrelevant"),
+    ("Request for additional chairs in the break room", "Irrelevant"),
+    ("Talking about new office decorations", "Irrelevant"),
+    ("Discussion about upcoming holidays", "Irrelevant"),
+    ("Casual chat about new restaurant in town", "Irrelevant"),
+    ("Team planning a social event after work", "Irrelevant"),
+    ("Discussion about company-wide news", "Irrelevant"),
+]
+
 
 
 # for worker_id, data in workers_data.items():
